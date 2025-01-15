@@ -2,7 +2,6 @@
 import AddTodoModal from "@/components/addTodoModal";
 import Header from "@/components/header";
 import CheckGreen from "@/components/svg/checkGreen";
-import TodosLogo from "@/components/svg/todosLogo";
 import TaskModal from "@/components/taskModal";
 import todoIcons from "@/components/todoIcons";
 import { todosFatch } from "@/utils/fatch/todo/todosFatch";
@@ -10,6 +9,7 @@ import { AddButtonHandle } from "@/utils/handles/AddButtonHandle";
 import { DoneHandle } from "@/utils/handles/DoneHandle";
 import { useState, useEffect } from "react";
 import { BiExpandVertical } from "react-icons/bi";
+import { FaPlus } from "react-icons/fa6";
 
 export interface ITask {
   id: number;
@@ -67,7 +67,7 @@ const Todos = () => {
   }, [todos, tasks]);
 
   return (
-    <div>
+    <div className="bg-gradient-to-r from-blue-500 to-purple-500 text-white">
       <div className="w-full flex flex-col items-center ">
         {/* modal */}
         {showModal && (
@@ -97,11 +97,11 @@ const Todos = () => {
           <div className="max-w-[56rem] flex flex-col items-center mx-auto">
             {/* mobile */}
             <div className="w-full lg:hidden text-left m-8">
-              <TodosLogo size={200} />
+              <h1 className="text-5xl font-bold mb-4">My Todos</h1>
             </div>
             {/* Desktop */}
             <div className="hidden lg:flex w-full justify-between font-extrabold mt-32 mb-12">
-              <TodosLogo />
+              <h1 className="text-5xl font-bold mb-4">My Todos</h1>
               {/* <div
                 onClick={() => setShowModal(!showModal)}
                 className="inline text-center px-12 py-2 bg-blue-500 text-white text-[1.5rem] font-normal rounded-md"
@@ -138,7 +138,9 @@ const Todos = () => {
                   setShowTaskModal(true);
                 }}
               >
-                +
+                <div className="border p-1 w-14 h-14 flex justify-center items-center rounded-lg">
+                  <FaPlus size={22} />
+                </div>
               </div>
             </div>
             <div className="h-[70vh] w-full flex flex-col items-center">

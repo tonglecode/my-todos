@@ -2,6 +2,7 @@
 import { UserContext } from "@/utils/userContext";
 import { useRouter } from "next/navigation";
 import { useContext, useEffect, useState } from "react";
+import { GoogleLogoColor } from "../svg/googleLogo-color";
 
 declare global {
   interface Window {
@@ -50,31 +51,36 @@ const GoogleLogin = ({ onGoogleLogin }: GoogleLoginProps) => {
         client_id: process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID,
         callback: handleGoogleLogin,
       });
-
-      window.google.accounts.id.renderButton(
-        document.getElementById("googleButton"),
-        {
-          type: "icon", // 아이콘 타입으로 변경
-          shape: "circle", // 원형 모양
-          size: "large", // 크기
-          theme: "outline", // 테두리 스타일
-        }
-      );
     };
 
     loadGoogleScript();
     userData?.fetchUser();
   }, [onGoogleLogin, userData, router]);
 
+  const handleCustomGoogleLogin = () => {
+    window.google.accounts.id.prompt();
+  };
+
   return (
-    <div className="w-64">
-      {loading ? (
-        <div className="spinner" />
-      ) : (
-        <div id="googleButton" className="w-full flex justify-center my-2">
-          google login
+    <div className="wrap w-[350px] mx-auto">
+      <div className="flex flex-col items-center">
+        <div className="text-[4rem] text-center my-[48px] font-sans">
+          Log in
         </div>
-      )}
+        <div className="w-64">
+          {loading ? (
+            <div className="spinner" />
+          ) : (
+            <button
+              onClick={handleCustomGoogleLogin}
+              className="w-full flex items-center justify-center gap-3 px-4 py-3  border rounded-full text-white hover:bg-gray-50 hover:text-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-200 transition-colors"
+            >
+              <GoogleLogoColor size={22} />
+              <span>Continue with Google</span>
+            </button>
+          )}
+        </div>
+      </div>
     </div>
   );
 };
