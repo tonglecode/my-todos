@@ -1,4 +1,4 @@
-import { ITask } from "@/app/content/todos/page";
+import { ITask } from "@/app/todos/page";
 import axios from "axios";
 import { Dispatch, SetStateAction } from "react";
 

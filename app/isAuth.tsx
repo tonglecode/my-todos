@@ -21,7 +21,7 @@ const IsAuth: React.FC<Props> = ({ children }) => {
         router.replace("/");
       }
     }
-  }, []);
+  }, [router]);
 
   return <div>{children}</div>;
 };

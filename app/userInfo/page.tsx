@@ -4,7 +4,7 @@ import { UserContext } from "@/utils/userContext";
 import axios from "axios";
 import React, { ChangeEvent, useContext, useEffect, useState } from "react";
 
-export enum Gender {
+enum Gender {
   MALE = "male",
   FEMALE = "female",
   OTHER = "other",
