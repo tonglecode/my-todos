@@ -10,7 +10,7 @@ interface Props {
 const IsAuth: React.FC<Props> = ({ children }) => {
   const router = useRouter();
   if (typeof window !== "undefined") {
-    // console.log(localStorage.getItem("qid") ? "ok" : "false");
+    console.log(localStorage.getItem("qid") ? "ok" : "false");
   }
   useEffect(() => {
     if (typeof window !== "undefined") {
