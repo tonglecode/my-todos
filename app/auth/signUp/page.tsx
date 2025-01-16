@@ -11,12 +11,12 @@ import resizeFile from "@/utils/resizeFile";
 import { MdOutlineCancel } from "react-icons/md";
 
 export default function SignUp() {
-  const [resizedImage, setResizedImage] = useState<string>();
+  //   const [resizedImage, setResizedImage] = useState<string>();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [photoBase64, setPhotoBase64] = useState<string>();
-  const [message, setMessage] = useState("");
+  //   const [message, setMessage] = useState("");
   const [isPasswordMarking, setIsPasswordMarking] = useState(true);
 
   const handleFileChange = async (event: ChangeEvent<HTMLInputElement>) => {
@@ -24,7 +24,7 @@ export default function SignUp() {
     if (file) {
       try {
         const image = await resizeFile(file);
-        setResizedImage(image);
+        // setResizedImage(image);
         setPhotoBase64(image);
       } catch (err) {
         console.log(err);
@@ -35,16 +35,13 @@ export default function SignUp() {
   const handleSubmit = async (e: any) => {
     e.preventDefault();
     try {
-      const response = await axios.post(
-        `${process.env.NEXT_PUBLIC_API_URL}register`,
-        {
-          name,
-          email,
-          password,
-          photoBase64,
-        }
-      );
-      setMessage(response.data.message);
+      await axios.post(`${process.env.NEXT_PUBLIC_API_URL}register`, {
+        name,
+        email,
+        password,
+        photoBase64,
+      });
+      //   setMessage(response.data.message);
     } catch (error) {
       console.error(error);
     }

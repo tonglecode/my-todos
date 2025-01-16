@@ -1,7 +1,13 @@
 "use client";
-import { Gender } from "@/app/userInfo/page";
+
 import axios from "axios";
 import { createContext, ReactNode, useEffect, useState } from "react";
+
+enum Gender {
+  MALE = "male",
+  FEMALE = "female",
+  OTHER = "other",
+}
 
 type UserType =
   | {
