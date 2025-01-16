@@ -9,7 +9,7 @@ export default function HomePage() {
       <header className="text-center">
         <div className="flex flex-col md:flex-row gap-8 justify-center items-center">
           <div className="mx-12">
-            <h1 className="text-5xl font-bold mb-4">통글 My-Todos</h1>
+            <h1 className="text-5xl font-bold mb-4">tongle My-Todos</h1>
             <p className="text-xl max-w-lg">
               Organize your life with ease. Sign up today and start managing
               your tasks like a pro.
