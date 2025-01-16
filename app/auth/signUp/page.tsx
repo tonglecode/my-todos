@@ -34,6 +34,7 @@ export default function SignUp() {
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();
+
     try {
       await axios.post(`${process.env.NEXT_PUBLIC_API_URL}register`, {
         name,
