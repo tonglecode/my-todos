@@ -12,7 +12,6 @@ const IsAuth: React.FC<Props> = ({ children }) => {
   if (typeof window !== "undefined") {
     // console.log(localStorage.getItem("qid") ? "ok" : "false");
   }
-
   useEffect(() => {
     if (typeof window !== "undefined") {
       if (localStorage.getItem("qid")) {
