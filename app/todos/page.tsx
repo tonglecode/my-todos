@@ -110,7 +110,7 @@ const Todos = () => {
               </div> */}
             </div>
 
-            <div className="grid grid-cols-4 w-full text-white gap-4">
+            <div className="grid grid-cols-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 w-full text-white gap-4">
               {tasks.map((task) => (
                 <div
                   key={task.id}
@@ -120,9 +120,9 @@ const Todos = () => {
                 >
                   <div
                     style={{ backgroundColor: task.color }}
-                    className={`relative hover:ring-4 rounded-lg w-full pl-16 py-4 cursor-pointer text-white text-[1.1rem]`}
+                    className={`h-14 relative hover:ring-4 rounded-lg w-14 sm:w-full pl-16 py-4 cursor-pointer text-white text-[1.1rem]`}
                   >
-                    {task.title}
+                    <div className="hidden sm:flex">{task.title}</div>
                     <div className="absolute top-1/2 -translate-y-1/2 left-5">
                       <div className="text-3xl rounded-full flex justify-center items-center">
                         {task.icon && todoIcons[task.icon]}
